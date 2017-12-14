@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import History from './history';
 
 
 
@@ -27,7 +28,7 @@ class Game extends Component {
         this.setState({
             theNumber: this.getRandomNumber(),
             theGuess: '',
-            guessResponse: ''
+            guessResponse: '',
         })
     };
 
@@ -86,7 +87,7 @@ class Game extends Component {
                 </div>
                 <div className="historyDiv">
                     <ul className="list-group">
-
+                       <History />
                     </ul>
                 </div>
             </div>
