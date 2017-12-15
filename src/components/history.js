@@ -1,24 +1,25 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class History extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            history: []
-        }
-    }
+export default (props) => {
+
+        console.log(props.history)
+        const savedGuess = props.history.map((value, index) =>{
+            return (
+                <div key={index}>
+                    <li className="guessNumber">{value}</li>
+                </div>
+            )
+        })
     
-
-    render(){
-        console.log(this.state)
-        return(
-            <li>Test</li>
-        ) 
-    }
+    return (
+        <ul className="list-group history text-center">
+            {savedGuess}
+        </ul>
+    )
 
 }
 
-export default History;
+
 
 
 

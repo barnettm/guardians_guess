@@ -11,12 +11,17 @@ class Game extends Component {
             theNumber: this.getRandomNumber(),
             theGuess: '',
             guessResponse: '',
-            styleClass: ''
+            styleClass: '',
+            history: [],
+            guessCount: 0,
+            lowestScore: localStorage.getItem('lowestScore') || 'Not Set',
         };
         this.getRandomNumber = this.getRandomNumber.bind(this);
         this.reset = this.reset.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleNumberGuess = this.handleNumberGuess.bind(this);
+        this.inputHistoryArray = this.inputHistoryArray.bind(this);
+        this.getLowestScore = this.getLowestScore.bind(this);
     }
     getRandomNumber = function(){
         return Math.floor(Math.random()*100)+1
@@ -29,35 +34,45 @@ class Game extends Component {
             theNumber: this.getRandomNumber(),
             theGuess: '',
             guessResponse: '',
+            history: [],
+            guessCount: 0
+            
         })
     };
 
     handleNumberGuess = function(event){
         event.preventDefault();
-        const {theGuess, theNumber} = this.state;
+        const {theGuess, theNumber, guessCount} = this.state;
         // const {styleClass} = this.state.styleClass;
+        if(theGuess == undefined || theGuess == ''){
+            return
+        }
         if(theGuess == theNumber){
             this.setState({
                 guessResponse: 'You Guessed It!!'
+            }, () => {
+                this.getLowestScore(guessCount)
             })
         }else if (theGuess > theNumber){
             this.setState({
                 guessResponse: 'Too High!!',
-                styleClass: 'shake'
+                styleClass: 'shake',
+                guessCount: this.state.guessCount += 1,
+            }, () => {
+                this.inputHistoryArray()
             })
-
         }else{
             this.setState({
                 guessResponse: 'Too Low!!',
-                styleClass: 'shake'
+                styleClass: 'shake',
+                guessCount: this.state.guessCount += 1,
+            }, () => {
+                this.inputHistoryArray()
             })
         }
-        this.setState({
-            theGuess: '',
-        })
     };
 
-    handleInputChange = function(event){
+    handleInputChange(event){
         event.preventDefault();
         this.setState({
             theGuess: event.target.value,
@@ -65,12 +80,34 @@ class Game extends Component {
         })
     };
 
+    inputHistoryArray() {
+        const {history, theGuess, guessResponse } = this.state;
+        this.setState({
+            history: [`${theGuess} | ${guessResponse}`, ...history],
+            theGuess: ''
+        })
+    }
+
+    getLowestScore(score){
+        const lowestScore = localStorage.getItem('lowestScore');
+        if(!lowestScore || lowestScore > score){
+            localStorage.setItem('lowestScore', score);
+            this.setState({
+                lowestScore: score
+            })
+        }
+    }
+
 
     render(){
         console.log(this.state);
         const {theGuess} = this.state;
         const{guessResponse} = this.state;
         const{styleClass} = this.state;
+        const{history} = this.state;
+        const{guessCount} = this.state;
+        const{lowestScore} = this.state;
+        const score = `Current Attempts: ${guessCount} | Best Score: ${lowestScore}`;
         return (
             <div className="text-center">
                 <h1 className="my-3">Guessing Game</h1>
@@ -84,13 +121,10 @@ class Game extends Component {
                 </form>
                 <div className={styleClass}>
                     <h1>{guessResponse}</h1>
+                    {score}
                 </div>
-                <div className="historyDiv">
-                    <ul className="list-group">
-                       <History />
-                    </ul>
+                <History history={history} guessResponse={guessResponse}/>
                 </div>
-            </div>
         )
     }
 }
