@@ -1,21 +1,64 @@
+@font-face {
+    font-family: 'guardians';
+    src: url('./fonts/Guardians.ttf')
+}
+
 div{
-    color: antiquewhite;
+    /* color: antiquewhite; */
+    color: #BB9867;
 }
 
 body{
-    background-color: black;
+    background: url("./guardians.jpg") no-repeat fixed;
+    /* background-position: center, center; */
+    background-size: cover;
+    font-family: 'guardians'
+}
+body h4{
+    margin: 20px;
 }
 
 input{
     font-size: 22px;
+    font-family: 'guardians';
+    width: 50%;
+    border-radius: 4px;
+}
+li{
+    border-radius: 4px;
+}
+.main-area{
+    background-color: rgba(0,0,0,.7);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.btn {
+    font-family: 'guardians';
+    cursor: pointer;
+}
+
+.success{
+    color: #72b566;
+}
+.responseDiv{
+    margin: 20px 0;
 }
 
 .history{
     list-style-type: none;
-    background-color: rgba(255,255,255,.5);
+    /* background-color: rgba(255,255,255,.5); */
+    background-color: rgba(118, 115, 115, 0.5);
     width: 50%;
     margin: 0 auto;
+    border-radius: 4px;
+    /* max-height: 400px;
+    overflow-y: scroll; */
 }
+/* .history::-webkit-scrollbar { 
+    display: none; 
+} */
 
 .shake {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
@@ -34,10 +77,10 @@ input{
     }
 
     30%, 50%, 70% {
-        transform: translate3d(-4%, 0%, 0);
+        transform: translate3d(-2%, 0%, 0);
     }
 
     40%, 60% {
-        transform: translate3d(4%, 0%, 0);
+        transform: translate3d(2%, 0%, 0);
     }
 }
