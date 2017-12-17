@@ -35,21 +35,23 @@ class Game extends Component {
             theGuess: '',
             guessResponse: '',
             history: [],
-            guessCount: 0
+            guessCount: 0,
+            success: ''
             
         })
     };
 
     handleNumberGuess = function(event){
         event.preventDefault();
-        const {theGuess, theNumber, guessCount} = this.state;
+        const {theGuess, theNumber, guessCount, success} = this.state;
         // const {styleClass} = this.state.styleClass;
         if(theGuess == undefined || theGuess == ''){
             return
         }
         if(theGuess == theNumber){
             this.setState({
-                guessResponse: 'You Guessed It!!'
+                guessResponse: 'You Guessed It!!',
+                success: 'success'
             }, () => {
                 this.getLowestScore(guessCount)
             })
@@ -100,28 +102,33 @@ class Game extends Component {
 
 
     render(){
-        console.log(this.state);
-        const {theGuess} = this.state;
-        const{guessResponse} = this.state;
-        const{styleClass} = this.state;
-        const{history} = this.state;
-        const{guessCount} = this.state;
-        const{lowestScore} = this.state;
-        const score = `Current Attempts: ${guessCount} | Best Score: ${lowestScore}`;
+        // console.log(this.state);
+        // const {theGuess} = this.state;
+        // const{guessResponse} = this.state;
+        // const{styleClass} = this.state;
+        // const{history} = this.state;
+        // const{guessCount} = this.state;
+        // const{lowestScore} = this.state;
+        // const{success} = this.state;
+        const{theGuess, guessResponse, styleClass, history, guessCount, lowestScore, success} = this.state;
+        const score = `Current Attempts: ${guessCount} | Top Score: ${lowestScore}`;
+        // const responseDiv = `responseDiv ${styleClass}`;
         return (
-            <div className="text-center">
-                <h1 className="my-3">Guessing Game</h1>
+            <div className="text-center main-area">
+                <h1 className="my-3">Guardians Guess</h1>
                 <form onSubmit={this.handleNumberGuess}>
-                    <h3>Guess A Number Between 1-100</h3>
-                    <input type="number" className="input-lg text-center" onChange={this.handleInputChange} value={theGuess}/>
+                    <h4>Guess A Number Between 1 and 100</h4>
+                    <input type="number" className="input-lg text-center" placeholder="1-100" onChange={this.handleInputChange} value={theGuess}/>
                     <div className="row justify-content-center">
                         <button className="btn btn-lg btn-outline-danger col-md-2 m-3 text-center" type='button' onClick={this.reset}>Reset</button>
                         <button className="btn btn-lg btn-outline-success col-md-2 m-3 text-center">Guess</button>
                     </div>
                 </form>
-                <div className={styleClass}>
-                    <h1>{guessResponse}</h1>
-                    {score}
+                <div className={`${styleClass} responseDiv`}>
+                    <h1 className={success}>{guessResponse}</h1>
+                </div>
+                <div>
+                    <p>{score}</p>
                 </div>
                 <History history={history} guessResponse={guessResponse}/>
                 </div>
