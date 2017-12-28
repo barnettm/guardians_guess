@@ -124,4 +124,9 @@ li{
     .responseDiv > h1 {
         font-size: 1.8rem;
     }
+    .history {
+        width: 95%;
+        max-height: 218px;
+        overflow: auto;
+    }
 }
