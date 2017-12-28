@@ -111,7 +111,7 @@ class Game extends Component {
         // const{lowestScore} = this.state;
         // const{success} = this.state;
         const{theGuess, guessResponse, styleClass, history, guessCount, lowestScore, success} = this.state;
-        const score = `Current Attempts: ${guessCount} | Top Score: ${lowestScore}`;
+        const score = `Current Score: ${guessCount} | Top Score: ${lowestScore}`;
         // const responseDiv = `responseDiv ${styleClass}`;
         return (
             <div className="text-center main-area">
