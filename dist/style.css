@@ -101,3 +101,27 @@ li{
         font-size: 2.2rem;
     }
 }
+@media screen and (max-width: 460px){
+    .btn{
+        width: 40%;
+    }
+    .main-area > h1 {
+        font-size: 25px;
+        margin-top: 0px !important;
+    }
+    h4{
+        font-size: 1rem;
+    }
+    .reset{
+        margin-right: 8px !important;
+    }
+    .guess {
+        margin-left: 8px !important;
+    }
+    input {
+        font-size: 17px;
+    }
+    .responseDiv > h1 {
+        font-size: 1.8rem;
+    }
+}
