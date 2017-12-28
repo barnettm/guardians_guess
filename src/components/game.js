@@ -120,8 +120,8 @@ class Game extends Component {
                     <h4>Guess A Number Between 1 and 100</h4>
                     <input type="number" className="input-lg text-center" placeholder="1-100" onChange={this.handleInputChange} value={theGuess}/>
                     <div className="row justify-content-center">
-                        <button className="btn btn-lg btn-outline-danger col-md-2 m-3 text-center" type='button' onClick={this.reset}>Reset</button>
-                        <button className="btn btn-lg btn-outline-success col-md-2 m-3 text-center">Guess</button>
+                        <button className="btn btn-lg btn-outline-danger col-md-2 m-3 text-center reset" type='button' onClick={this.reset}>Reset</button>
+                        <button className="btn btn-lg btn-outline-success col-md-2 m-3 text-center guess">Guess</button>
                     </div>
                 </form>
                 <div className={`${styleClass} responseDiv`}>
