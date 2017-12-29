@@ -91,6 +91,9 @@ class Game extends Component {
     }
 
     getLowestScore(score){
+        if(score == 0){
+            score = 1;
+        }
         const lowestScore = localStorage.getItem('lowestScore');
         if(!lowestScore || lowestScore > score){
             localStorage.setItem('lowestScore', score);
