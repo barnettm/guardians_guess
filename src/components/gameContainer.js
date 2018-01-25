@@ -105,9 +105,8 @@ class GameContainer extends Component {
 
     render(){
         console.log(this.state);
-        const {handleInputChange, handleNumberGuess, reset} = this;
-        const{theGuess, guessResponse, styleClass, history, guessCount, lowestScore, success} = this.state;
-        const score = `Current Score: ${guessCount} | Top Score: ${lowestScore}`;
+        const {handleInputChange, handleNumberGuess,reset} = this;
+        const{theGuess, guessResponse, styleClass, history, guessCount, lowestScore, success, theNumber} = this.state;
         // const responseDiv = `responseDiv ${styleClass}`;
         return (
             <div>
