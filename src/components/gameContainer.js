@@ -121,7 +121,7 @@ class GameContainer extends Component {
                     guessCount={guessCount}
                     theGuess={theGuess}
                 />
-                <History history={history} guessResponse={guessResponse} />
+                <History history={history} guessResponse={guessResponse} styleClass={styleClass}/>
             </div>
 
         )
