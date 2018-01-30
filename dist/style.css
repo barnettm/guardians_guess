@@ -4,13 +4,11 @@
 }
 
 div{
-    /* color: antiquewhite; */
     color: #BB9867;
 }
 
 body{
     background: url("./guardians.jpg") no-repeat fixed;
-    /* background-position: center, center; */
     background-size: cover;
     font-family: 'guardians'
 }
@@ -48,17 +46,12 @@ li{
 
 .history{
     list-style-type: none;
-    /* background-color: rgba(255,255,255,.5); */
     background-color: rgba(118, 115, 115, 0.5);
     width: 50%;
     margin: 0 auto;
     border-radius: 4px;
-    /* max-height: 400px;
-    overflow-y: scroll; */
 }
-/* .history::-webkit-scrollbar { 
-    display: none; 
-} */
+
 
 .shake {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
