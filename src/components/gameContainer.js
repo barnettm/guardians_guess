@@ -120,8 +120,12 @@ class GameContainer extends Component {
                     handleInputChange={handleInputChange}
                     guessCount={guessCount}
                     theGuess={theGuess}
+                    styleClass={styleClass}
+                    guessResponse={guessResponse}
+                    success={success}
+                    lowestScore={lowestScore}
                 />
-                <History history={history} guessResponse={guessResponse} styleClass={styleClass}/>
+                <History history={history} guessResponse={guessResponse}/>
             </div>
 
         )
