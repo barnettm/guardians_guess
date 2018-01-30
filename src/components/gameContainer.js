@@ -24,11 +24,22 @@ class GameContainer extends Component {
         this.inputHistoryArray = this.inputHistoryArray.bind(this);
         this.getLowestScore = this.getLowestScore.bind(this);
     }
+
+/***************************************************************************************************
+ * getRandomNumber - Generates random number 1-100.  This is the number to be guessed
+ * @param: {undefined} none
+ * @returns: number
+ * @calls: none
+ */
     getRandomNumber = function () {
         return Math.floor(Math.random() * 100) + 1
     };
 
-
+/***************************************************************************************************
+ * reset - resets game and restores state / variables to default
+ * @param: {event} none
+ * @returns: {undefined} none
+ */
     reset = function (event) {
         event.preventDefault();
         this.setState({
@@ -38,20 +49,17 @@ class GameContainer extends Component {
             history: [],
             guessCount: 0,
             success: ''
-
         })
     };
 
     handleNumberGuess = function (event) {
         event.preventDefault();
         const { theGuess, theNumber, guessCount, success } = this.state;
-        // const {styleClass} = this.state.styleClass;
+
         if (theGuess == undefined || theGuess == '') {
             return
         }
 
-        console.log('Guess:', theGuess);
-        console.log('The Number:', theNumber);
         if (theGuess == theNumber) {
             this.setState({
                 guessResponse: 'You Guessed It!!',
@@ -79,7 +87,9 @@ class GameContainer extends Component {
             })
         }
     };
-
+/***************************************************************************************************
+ * handleInputChange - set state for input
+ */
     handleInputChange(event) {
         event.preventDefault();
         this.setState({
@@ -87,6 +97,9 @@ class GameContainer extends Component {
             styleClass: ''
         })
     };
+/***************************************************************************************************
+ * inputHistoryArray - set state for guess response / history
+ */    
 
     inputHistoryArray() {
         const { history, theGuess, guessResponse } = this.state;
@@ -95,7 +108,10 @@ class GameContainer extends Component {
             theGuess: ''
         })
     }
-
+/***************************************************************************************************
+ * getLowestScore - checks current score against localStorage score and sets localStorage to top score
+ * @param: {score} 
+ */
     getLowestScore(score) {
         const lowestScore = localStorage.getItem('lowestScore');
         if (!lowestScore || lowestScore > score) {
@@ -108,7 +124,6 @@ class GameContainer extends Component {
 
 
     render() {
-        console.log(this.state);
         const { handleInputChange, handleNumberGuess, reset } = this;
         const { theGuess, guessResponse, styleClass, history, guessCount, lowestScore, success, theNumber } = this.state;
         // const responseDiv = `responseDiv ${styleClass}`;
@@ -127,7 +142,6 @@ class GameContainer extends Component {
                 />
                 <History history={history} guessResponse={guessResponse}/>
             </div>
-
         )
     }
 }

@@ -1,7 +1,7 @@
 {
   "name": "guess_game",
   "version": "1.0.0",
-  "description": "Base repo for creating a simple number guessing game",
+  "description": "React guessing game with Guardians of the Galaxy Theme",
   "main": "index.js",
   "scripts": {
     "start": "node dev_server.js",
