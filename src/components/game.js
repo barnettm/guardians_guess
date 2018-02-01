@@ -5,7 +5,7 @@ export default (props) => {
     const score = `Current Score: ${guessCount} | Top Score: ${lowestScore}`
     const mobileScoreOne = `Current Score: ${guessCount}`
     const mobileScoreTwo = `Top Score: ${lowestScore}`
-    const disable = `${disabled}`;
+    console.log({disabled})
 
     return (
         <div>

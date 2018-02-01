@@ -16,6 +16,7 @@ class GameContainer extends Component {
             history: [],
             guessCount: 0,
             lowestScore: localStorage.getItem('lowestScore') || 'Not Set',
+            disabled: 'disabled'
         };
         this.getRandomNumber = this.getRandomNumber.bind(this);
         this.reset = this.reset.bind(this);
@@ -97,7 +98,7 @@ class GameContainer extends Component {
         this.setState({
             theGuess: event.target.value,
             styleClass: '',
-            disabled: false
+            disabled: 'false'
         })
     };
   
