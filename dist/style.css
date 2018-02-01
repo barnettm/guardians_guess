@@ -8,7 +8,7 @@ div{
 }
 
 body{
-    background: url("./guardians.jpg") no-repeat fixed;
+    background: url("./guardians.webp") no-repeat fixed;
     background-size: cover;
     font-family: 'guardians'
 }
@@ -103,7 +103,7 @@ li{
         width: 80%;
     }
 }
-@media screen and (max-width: 680px){ /**460px88**/
+@media screen and (max-width: 680px){ 
     .btn{
         width: 40%;
     }
