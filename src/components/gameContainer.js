@@ -49,7 +49,6 @@ class GameContainer extends Component {
             history: [],
             guessCount: 0,
             success: '',
-            disabled: 'disabled'
         })
     };
 
@@ -145,6 +144,7 @@ class GameContainer extends Component {
                     success={success}
                     lowestScore={lowestScore}
                     disabled={disabled}
+
                 />
                 <History history={history} guessResponse={guessResponse}/>
             </div>
