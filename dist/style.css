@@ -97,6 +97,12 @@ li{
         font-size: 2.2rem;
     }
 }
+
+@media screen and (min-width: 680px) and (max-width: 780px){
+    .history {
+        width: 80%;
+    }
+}
 @media screen and (max-width: 680px){ /**460px88**/
     .btn{
         width: 40%;
@@ -106,7 +112,7 @@ li{
         margin-top: 0px !important;
     }
     h4{
-        font-size: 1rem;
+        font-size: .7rem;
     }
     .reset{
         margin-right: 8px !important;
