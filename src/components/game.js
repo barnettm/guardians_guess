@@ -3,8 +3,8 @@ import React from "react";
 export default (props) => {
     const  {theGuess, guessResponse, theNumber, styleClass, history, guessCount,disabled, lowestScore, success, handleInputChange, handleNumberGuess, resetGame} = props;
     const score = `Current Score: ${guessCount} | Top Score: ${lowestScore}`
-    const score2 = `Current Score: ${guessCount}`
-    const score3 = `Top Score: ${lowestScore}`
+    const mobileScoreOne = `Current Score: ${guessCount}`
+    const mobileScoreTwo = `Top Score: ${lowestScore}`
     const disable = `${disabled}`;
 
     return (
@@ -25,8 +25,8 @@ export default (props) => {
                 </div>
                 <div>
                     <p className="hidden-md-down">{score}</p>
-                    <p className="hidden-lg-up">{score2}</p>
-                    <p className="hidden-lg-up">{score3}</p>
+                    <p className="hidden-lg-up">{mobileScoreOne}</p>
+                    <p className="hidden-lg-up">{mobileScoreTwo}</p>
                 </div>
              </div>
         </div>
