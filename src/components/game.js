@@ -11,7 +11,8 @@ export default (props) => {
                 <h1 className="my-3">Guardians Guess</h1>
                 <form onSubmit={handleNumberGuess}>
                     <h4>Guess A Number Between 1 and 100</h4>
-                    <input type="number" className="input-lg text-center" placeholder="1-100" onChange={handleInputChange} value={theGuess}/>
+                    <input type="number" id="input" className="input-lg text-center" placeholder="1-100" onChange={handleInputChange} value={theGuess}/>
+                    <label htmlFor="input"></label>
                     <div className="row justify-content-center">
                         <button className="btn btn-lg btn-outline-danger col-md-2 m-2 text-center reset" type='button' onClick={resetGame}>Reset</button>
                         <button className="btn btn-lg btn-outline-success col-md-2 m-2 text-center guess">Guess</button>
