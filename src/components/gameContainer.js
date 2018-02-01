@@ -48,7 +48,8 @@ class GameContainer extends Component {
             guessResponse: '',
             history: [],
             guessCount: 0,
-            success: ''
+            success: '',
+            disabled: 'disabled'
         })
     };
 
@@ -91,12 +92,16 @@ class GameContainer extends Component {
  * handleInputChange - set state for input
  */
     handleInputChange(event) {
+        const {theGuess, disabled} = this.state;
+        
         event.preventDefault();
         this.setState({
             theGuess: event.target.value,
-            styleClass: ''
+            styleClass: '',
+            disabled: false
         })
     };
+  
 /***************************************************************************************************
  * inputHistoryArray - set state for guess response / history
  */    
@@ -125,7 +130,7 @@ class GameContainer extends Component {
 
     render() {
         const { handleInputChange, handleNumberGuess, reset } = this;
-        const { theGuess, guessResponse, styleClass, history, guessCount, lowestScore, success, theNumber } = this.state;
+        const { theGuess, disabled, guessResponse, styleClass, history, guessCount, lowestScore, success, theNumber } = this.state;
         // const responseDiv = `responseDiv ${styleClass}`;
         return (
             <div>
@@ -139,6 +144,7 @@ class GameContainer extends Component {
                     guessResponse={guessResponse}
                     success={success}
                     lowestScore={lowestScore}
+                    disabled={disabled}
                 />
                 <History history={history} guessResponse={guessResponse}/>
             </div>
