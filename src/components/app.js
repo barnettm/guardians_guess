@@ -1,5 +1,5 @@
 import React from 'react';
-import GameContainer from './gameContainer'
+import GameContainer from './gameContainer';
 
 const App = () => (
     <div className="container">
